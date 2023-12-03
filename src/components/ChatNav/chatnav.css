@@ -1,0 +1,34 @@
+.chatnav{
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.chatnav-logo{
+    font-weight: bold;
+    font-size: 25px;
+}
+.chatnav-profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+.chatnav-profile-image{
+    height: 30px;
+    width: 30px;
+    background-size: cover;
+    background-color: green;
+    border-radius: 50%;
+}
+.chatnav-username{
+    white-space: pre-wrap;
+    width: min-content;
+    font-size: 12px;
+    /* word-wrap: break-word; */
+}

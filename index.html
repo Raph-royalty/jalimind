@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jalimind</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDyhoet3Bd6yhN06kN9h7TyCTlP8vTbYRo",
+      authDomain: "jalimind.firebaseapp.com",
+      databaseURL: "https://jalimind-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "jalimind",
+      storageBucket: "jalimind.appspot.com",
+      messagingSenderId: "1069921977308",
+      appId: "1:1069921977308:web:eac9b8e01c9e425c178519",
+      measurementId: "G-R3XN9DCC6R"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
+
+</body>
+
+</html>

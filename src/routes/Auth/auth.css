@@ -1,0 +1,95 @@
+.auth{
+    display: flex;
+    height: 100vh;
+}
+.auth-left{
+    display: none;
+    background-image: url('../../assets/hero.svg');
+    width: 50%;
+    height: 100vh;
+    background-color: var(--primary);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+.auth-right{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.auth-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 30px;
+}
+.auth-form-input{
+    border: none;
+    border-bottom: 1px solid var(--black);
+    width: 80%;
+    margin-top: 40px;
+    font-size: 15px;
+    outline: none;
+    padding: 5px 10px;
+}
+.auth-form-row{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.auth-form-row-item{
+    width: 47%;
+}
+.auth-form-button{
+    outline: none;
+    padding: 15px 50px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 20px;
+    margin: 40px 0px;
+}
+
+.auth-form-button:hover{
+    cursor: pointer;
+    background-color: var(--primary);
+    color: var(--white);
+}
+.auth-bannerText{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 70px;
+    width: 80%
+
+}
+.auth-link{
+    color: var(--primary);
+}
+
+@media only screen and (min-width: 768px) {
+    .auth-left{
+        display: block;
+    }
+    .auth-right{
+        width: 50%;
+    }
+    .auth-form-input{
+        font-size: 25px;
+    }
+    .auth-form-button{
+        outline: none;
+        padding: 20px 100px;
+        border-radius: 20px;
+        border: none;
+        font-size: 20px;
+    }
+
+
+}

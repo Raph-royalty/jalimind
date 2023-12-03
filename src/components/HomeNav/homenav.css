@@ -1,0 +1,30 @@
+.homenav{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    border-bottom: 1px solid gray;
+    height: 8vh;
+    align-items: center;
+    font-size: 15px;
+}
+.homenav-links{
+    display: flex;
+    gap: 10px;
+}
+.homenav-login{
+    background-color: var(--primary);
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: var(--white);
+
+}
+.homenav-login:hover{
+    cursor: pointer;
+    background-color: var(--white);
+    color: var(--black);
+}
+.homenav-logo{
+    font-size: 30px;
+    text-transform: uppercase;
+    /* color: white; */
+}
