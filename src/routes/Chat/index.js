@@ -39,7 +39,6 @@ const Chat = ({ username }) => {
         let config = {
             method: 'post',
             url: 'http://localhost:5000/jalimind/us-central1/chatbot/chat/',
-            //url: "https://us-central1-jalimind.cloudfunctions.net/chatbot/chat",
             headers: {
                 'Content-Type': 'application/json'
             },
