@@ -29,9 +29,8 @@ export function App() {
     <div>
       <Router>
         <Home path="/" />
-        <Chat path="/chat" username={username} />
+        <Chat path="/chat" username={username} uid={uid}/>
         <Auth path="/login" />
-
         {/* <Home path="/"  uid={uid} name={name} userUpdate={userUpdates}/> */}
       </Router>
     </div>

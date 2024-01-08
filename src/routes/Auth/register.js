@@ -26,7 +26,13 @@ const Register = ({ setType }) => {
         else{
             firebase.auth().createUserWithEmailAndPassword(username + '@jalimind.com', password).then((user) => {
                 alert('Account created!');
+                firebase.database().ref('users/' + user.user.uid).set({
+                    username: username,
+                    uid: user.user.uid,
+                    password: password
+                });
                 location.href = '/chat';
+                
             }).catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;

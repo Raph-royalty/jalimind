@@ -5,12 +5,45 @@ import './chat.css';
 import ChatNav from '../../components/ChatNav';
 import send from '../../assets/icons/send.svg';
 
-const Chat = ({ username }) => {
+const Chat = ({ username, uid }) => {
     const [messages, setMessages] = useState([]);
     const [inputText, setInputText] = useState('');
     const messagesEndRef = useRef(null);
     const [name, setName] = useState('');
     const [loading, setLoading] = useState(false);
+    const [conversationId, setConversationId] = useState('');
+    const [typingMessage, setTypingMessage] = useState('Loading');
+
+    useEffect(() => {
+
+        let randomIDFromFirestore = firebase.firestore().collection('chat').doc().id;
+        setConversationId(randomIDFromFirestore);
+        console.log(randomIDFromFirestore);
+    }, []);
+
+    useEffect(() => {
+        if(uid == ''){
+            return;
+        }
+        setLoading(true);
+        let query = firebase.firestore().collection('messages')
+        query = query.where('uid', '==', uid);
+        query = query.orderBy('timestamp', 'asc');
+        query.onSnapshot((querySnapshot) => {
+            let data = [];
+            
+            querySnapshot.forEach((doc) => {
+                data.push(doc.data());
+            });
+            console.log(data);
+            setMessages(data);
+            setLoading(false);
+            setTypingMessage('Typing');
+        });
+
+    }, [uid]);
+
+
 
     useEffect(() => {
         let names = username.replace(/\s/g, '');
@@ -33,8 +66,16 @@ const Chat = ({ username }) => {
         }, 1000);
 
         let data = JSON.stringify({
+            "uid": uid,
             "messages": newMessages
         });
+        firebase.firestore().collection('messages').add({
+            role: 'user',
+            content: inputText,
+            uid: uid,
+            conversationId: conversationId,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        })
 
         let config = {
             method: 'post',
@@ -52,6 +93,15 @@ const Chat = ({ username }) => {
                 const updatedMessages = [...newMessages, { role: 'assistant', content: reply }];
                 setLoading(false);
                 setMessages(updatedMessages);
+
+                firebase.firestore().collection('messages').add({
+                    role: 'assistant',
+                    content: reply,
+                    uid: uid,
+                    conversationId: conversationId,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    
+                })
             })
             .catch((error) => {
                 console.log(error);
@@ -92,7 +142,7 @@ const Chat = ({ username }) => {
                             <div className="chat-message chat-message-assistant">
                                 <div className="chat-profile chat-profile-assistant"></div>
                                 <div className="chat-text chat-text-assistant">
-                                    <p style="display:flex">Typing <p class="typing">...</p></p>
+                                    <p style="display:flex">{typingMessage} <p class="typing">...</p></p>
                                 </div>
                             </div>
                         }

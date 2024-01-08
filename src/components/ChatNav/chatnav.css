@@ -1,4 +1,4 @@
-.chatnav{
+.chatnav {
     width: 100%;
     border-bottom: 1px solid #ccc;
     padding: 5px 10px;
@@ -6,11 +6,13 @@
     justify-content: space-between;
     align-items: center;
 }
-.chatnav-logo{
+
+.chatnav-logo {
     font-weight: bold;
     font-size: 25px;
 }
-.chatnav-profile{
+
+.chatnav-profile {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,16 +21,47 @@
     border-radius: 10px;
     padding: 5px 10px;
 }
-.chatnav-profile-image{
+
+.chatnav-profile-image {
     height: 30px;
     width: 30px;
     background-size: cover;
     background-color: green;
     border-radius: 50%;
 }
-.chatnav-username{
+
+.chatnav-username {
     white-space: pre-wrap;
     width: min-content;
     font-size: 12px;
+    height: 10px;
     /* word-wrap: break-word; */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 100px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    right: 0;
+    margin-top: 10px;
+    z-index: 1;
+    cursor: pointer;
+}
+.dropdown-items{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.chatnav-logout{
+    padding: 10px;
 }
